@@ -1,0 +1,60 @@
+.content {
+  position: relative;
+}
+
+.latest {
+  margin-bottom: 2rem;
+}
+.latest-group {
+  margin-top: 0.8rem;
+}
+
+.img-all {
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+
+.all {
+  padding-bottom: 1rem;
+}
+
+.img-all img {
+  max-width: 400px;
+  display: block;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.all:hover img {
+  filter: grayscale(1);
+}
+
+.img-all:hover img {
+  filter: grayscale(0);
+}
+
+.img-all:hover .caption {
+  opacity: 1;
+}
+
+.img-all img:hover {
+  transform: scale(1.05);
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 25px 15px 15px;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.top-5 {
+  margin-top: 1em;
+}

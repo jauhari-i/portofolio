@@ -1,0 +1,172 @@
+:root {
+  --navbar-expanded: 14em;
+  --navbar-shrinked: 4.4em;
+  --navbar-li-padding: 0.8em;
+  --navbar-li-padding-quarter: 0.8em;
+}
+
+.navbar {
+  font-weight: 600;
+  height: 100%;
+  width: var(--navbar-expanded);
+  position: fixed;
+  background: #ffffff;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.15);
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: nowrap;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.navbar li {
+  padding: var(--navbar-li-padding);
+}
+
+.navbar a {
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+  color: #777777;
+}
+
+.navbar .brand {
+  color: #777777;
+  font-weight: bold;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.navbar .brand .resp {
+  display: none;
+}
+
+.navbar a.navbar-brand,
+.navbar a.navbar-footer {
+  padding: var(--navbar-li-padding-quarter);
+}
+
+.navbar-footer {
+  color: #777777;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.navbar a:hover {
+  color: #999999;
+}
+
+.navbar a.active {
+  color: black;
+}
+
+.navbar span {
+  margin-left: 2em;
+  font-size: 1rem;
+}
+
+.navbar-nav span {
+  vertical-align: middle;
+}
+
+.main {
+  transition: margin-left 0.5s;
+  margin-left: var(--navbar-expanded);
+}
+
+.navbar .icon {
+  display: none;
+}
+
+.footer {
+  align-self: center;
+}
+
+.footer .row {
+  justify-content: center;
+}
+
+.footer .row a {
+  margin: 0px 10px;
+}
+
+.footer-mobile {
+  display: none;
+}
+
+.footer-mobile .more {
+  display: block;
+  padding: 8px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-link {
+  padding: 0px 20px;
+}
+
+.mobile-link a {
+  margin: 10px 10px 0px;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+  color: #777777;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-link a:hover {
+  color: #999999;
+}
+
+@media screen and (max-height: 450px) {
+  .navbar {
+    padding-top: 15px;
+  }
+  .navbar a {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    width: var(--navbar-shrinked);
+  }
+  .navbar a span {
+    display: none;
+  }
+  .navbar .brand h1 {
+    display: none;
+  }
+
+  .navbar a {
+    display: block;
+  }
+
+  .navbar .brand .resp {
+    display: block;
+  }
+
+  .navbar .icon {
+    display: block;
+    text-align: center;
+  }
+
+  .main {
+    margin-left: var(--navbar-shrinked);
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .footer-mobile {
+    display: block;
+  }
+}

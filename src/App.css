@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  animation: fade-in 0.5s ease-in-out;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes fade-in {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
   }
+}
+
+:root {
+  /* Reference colors */
+  --blue-pantone: #3326ae;
+  --red-ryb: #ff392bff;
+  --ghost-white: #f7f8ffff;
+  --space-cadet: #2b2b4cff;
+  --amber: #ffc005ff;
+  /* Custom colors*/
+  --white: #fff;
+  --white-transparent: #ffffff66;
+  --space-cadet-transparent: #2b2b4cbb;
+  --placeholder: #cbcde4;
+  --ghost-white-text: #c3c6deff;
+  /* Tweet buttons */
+  --video: var(--blue-pantone);
+  --duration: #00c3f8;
+  --likes: var(--red-ryb);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

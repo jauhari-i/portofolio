@@ -1,0 +1,32 @@
+.header-root {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.space {
+  justify-content: space-between;
+}
+
+.page-title h1 {
+  font-weight: bold;
+}
+
+.search-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  padding: 4px;
+  font-weight: 600;
+}
+
+.search-input:-webkit-autofill {
+  background: transparent;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  /* -webkit-text-fill-color: #ffffff; */
+}

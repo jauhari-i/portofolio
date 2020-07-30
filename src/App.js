@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import './assets/css/base.css';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Sidebar from './components/layouts/Sidebar';
+import Home from './pages/Home';
 
-function App() {
+export const ContentDesktop = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Sidebar>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </Sidebar>
   );
-}
+};
+
+export const ContentMobile = () => {
+  return <h1>Mobile App</h1>;
+};
+
+const App = ({ store }) => {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [width]);
+  return (
+    <Provider store={store}>
+      <BrowserRouter>{width <= 425 ? <ContentMobile /> : <ContentDesktop />}</BrowserRouter>
+    </Provider>
+  );
+};
 
 export default App;
