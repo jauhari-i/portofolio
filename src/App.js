@@ -11,9 +11,9 @@ export const ContentDesktop = () => {
   return (
     <Sidebar>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/albums" component={Album} />
-        <Route exact path="/gallery" component={Gallery} />
+        <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
+        <Route exact path={process.env.PUBLIC_URL + '/albums'} component={Album} />
+        <Route exact path={process.env.PUBLIC_URL + '/gallery'} component={Gallery} />
       </Switch>
     </Sidebar>
   );
