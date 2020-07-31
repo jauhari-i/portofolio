@@ -8,8 +8,8 @@ import {
   AccountCircleRounded,
   MoreHorizRounded,
   Instagram,
-  Facebook,
-  WhatsApp,
+  Twitter,
+  MailRounded,
 } from '@material-ui/icons';
 import Fade from '@material-ui/core/Fade';
 import Popper from '@material-ui/core/Popper';
@@ -37,7 +37,7 @@ const Sidebar = ({ children }) => {
           <li>
             <Link
               to={process.env.PUBLIC_URL + '/'}
-              className={location.pathname === '/' ? 'active' : ''}
+              className={location.pathname === process.env.PUBLIC_URL + '/' ? 'active' : ''}
             >
               <div className="icon">
                 <HomeRounded />
@@ -48,7 +48,7 @@ const Sidebar = ({ children }) => {
           <li>
             <Link
               to={process.env.PUBLIC_URL + '/albums'}
-              className={location.pathname === '/albums' ? 'active' : ''}
+              className={location.pathname === process.env.PUBLIC_URL + '/albums' ? 'active' : ''}
             >
               <div className="icon">
                 <PhotoAlbumRounded />
@@ -59,7 +59,7 @@ const Sidebar = ({ children }) => {
           <li>
             <Link
               to={process.env.PUBLIC_URL + '/gallery'}
-              className={location.pathname === '/gallery' ? 'active' : ''}
+              className={location.pathname === process.env.PUBLIC_URL + '/gallery' ? 'active' : ''}
             >
               <div className="icon">
                 <Photo />
@@ -70,7 +70,7 @@ const Sidebar = ({ children }) => {
           <li>
             <Link
               to={process.env.PUBLIC_URL + '/about'}
-              className={location.pathname === '/about' ? 'active' : ''}
+              className={location.pathname === process.env.PUBLIC_URL + '/about' ? 'active' : ''}
             >
               <div className="icon">
                 <AccountCircleRounded />
@@ -82,15 +82,23 @@ const Sidebar = ({ children }) => {
         <div className="navbar-footer">
           <div className="footer">
             <div className="row">
-              <Link>
-                <WhatsApp fontSize="small" />
-              </Link>
-              <Link>
+              <a
+                href="https://wwww.instagram.com/lunarlarasa"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <Instagram fontSize="small" />
-              </Link>
-              <Link>
-                <Facebook fontSize="small" />
-              </Link>
+              </a>
+              <a
+                href="https://wwww.twitter.com/lunarlarasa"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Twitter fontSize="small" />
+              </a>
+              <a href="mailto:lunarlarasa@gmail.com" rel="noopener noreferrer" target="_blank">
+                <MailRounded fontSize="small" />
+              </a>
             </div>
           </div>
           <div className="footer-mobile">
@@ -105,15 +113,23 @@ const Sidebar = ({ children }) => {
           <Fade {...TransitionProps} timeout={350}>
             <Paper className="mobile-link">
               <div className="row">
-                <Link>
-                  <WhatsApp fontSize="small" />
-                </Link>
-                <Link>
+                <a
+                  href="https://wwww.instagram.com/lunarlarasa"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <Instagram fontSize="small" />
-                </Link>
-                <Link>
-                  <Facebook fontSize="small" />
-                </Link>
+                </a>
+                <a
+                  href="https://wwww.twitter.com/lunarlarasa"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Twitter fontSize="small" />
+                </a>
+                <a href="mailto:lunarlarasa@gmail.com" rel="noopener noreferrer" target="_blank">
+                  <MailRounded fontSize="small" />
+                </a>
               </div>
             </Paper>
           </Fade>

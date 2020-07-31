@@ -20,6 +20,10 @@
   font-weight: 600;
 }
 
+.search-mobile {
+  display: none;
+}
+
 .search-input:-webkit-autofill {
   background: transparent;
 }
@@ -29,4 +33,14 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
   /* -webkit-text-fill-color: #ffffff; */
+}
+
+@media screen and (max-width: 600px) {
+  .search {
+    display: none;
+  }
+
+  .search-mobile {
+    display: block;
+  }
 }

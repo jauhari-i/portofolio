@@ -167,23 +167,17 @@ const DialogImg = ({ open, onClose, albumId }) => {
         ) : (
           <div>
             <div className="row">
-              <div className="col-md-12">
-                <div
-                  className="album-detail"
-                  style={{
-                    backgroundImage: `url(${
-                      dataDetail.thumbnail ? dataDetail.thumbnail : defaultImg
-                    })`,
-                  }}
-                >
+              <div className="col-sm-12">
+                <div className="album-detail">
+                  <img src={dataDetail.thumbnail ? dataDetail.thumbnail : defaultImg} alt="haha" />
                   <h1>{dataDetail.albumName}</h1>
                 </div>
               </div>
             </div>
             <div className="row" style={{ paddingBottom: '2rem' }}>
               {dataAlbumGallery.map((item, idx) => (
-                <div key={idx} className="col-sm-3">
-                  <figure className="img-all">
+                <div key={idx} className="col-sm-3" style={{ padding: '0rem 0.5rem ' }}>
+                  <figure className="img-album">
                     <img src={item.imgUrl} alt="haha" />
                     <figcaption className="caption">{item.caption}</figcaption>
                   </figure>

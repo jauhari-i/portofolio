@@ -23,16 +23,19 @@
 .album-detail {
   width: 100%;
   height: 300px;
-  background-color: rgba(0, 0, 0, 0.3);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-blend-mode: overlay;
   margin-bottom: 2rem;
   color: white;
   border-radius: 10px;
   position: relative;
+  display: block;
+}
+
+.album-detail img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  image-rendering: optimizeQuality;
 }
 
 .album-detail h1 {
@@ -43,4 +46,28 @@
   display: flex;
   align-items: center; /** Y-axis align **/
   justify-content: center; /** X-axis align **/
+}
+
+.img-album {
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.img-album img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px !important;
+}
+
+.img-album:hover img {
+  transform: scale(1.05);
+}
+
+.img-album:hover .caption {
+  opacity: 1;
 }

@@ -14,6 +14,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllGallery } from './actions';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import moment from 'moment';
 
 const useStyles = makeStyles((theme) => ({
   colorPrimary: {
@@ -160,7 +161,14 @@ const All = ({ handleImage, handleOpen, gallery }) => {
                 <ListItemAvatar>
                   <Avatar alt="img" src={item.imgUrl} />
                 </ListItemAvatar>
-                <ListItemText primary={''} secondary={item.caption} />
+                <ListItemText
+                  primary={item.caption}
+                  secondary={
+                    item.album
+                      ? 'Album: ' + item.album + ', Date: ' + moment(item.createdAt).format('LLL')
+                      : 'Album: None, Date: ' + moment(item.createdAt).format('LLL')
+                  }
+                />
               </ListItem>
             ))}
           </List>
