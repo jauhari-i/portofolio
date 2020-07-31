@@ -12,10 +12,13 @@ const BASIC_AUTH = {
 };
 // const BEARER_AUTH = { Authorization: getToken() };
 
-const fetch = (url, method, param1, param2) => {
+export const getAllGallery = async () => {
   return new Promise((resolve, reject) => {
-    axios[method](url, param1, param2)
-      .then((res) => resolve(res))
+    axios
+      .get(`${baseUrl}/gallery`, { headers: BASIC_AUTH })
+      .then((data) => {
+        resolve(data.data);
+      })
       .catch((err) => {
         const defaultError = {
           code: 500,
@@ -29,6 +32,62 @@ const fetch = (url, method, param1, param2) => {
   });
 };
 
-export const getAllGallery = async () => {
-  await fetch(`${baseUrl}/gallery`, 'get', { BASIC_AUTH });
+export const getAllAlbum = async () => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${baseUrl}/album`, { headers: BASIC_AUTH })
+      .then((data) => {
+        resolve(data.data);
+      })
+      .catch((err) => {
+        const defaultError = {
+          code: 500,
+          status: 'error',
+          message: 'Failed to fetch data. Please contact developer.',
+        };
+        if (!err.response) reject(defaultError);
+        else if (!err.response.data) reject(defaultError);
+        else reject(err.response.data);
+      });
+  });
+};
+
+export const getDetailAlbum = async (id) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${baseUrl}/album/${id}`, { headers: BASIC_AUTH })
+      .then((data) => {
+        resolve(data.data);
+      })
+      .catch((err) => {
+        const defaultError = {
+          code: 500,
+          status: 'error',
+          message: 'Failed to fetch data. Please contact developer.',
+        };
+        if (!err.response) reject(defaultError);
+        else if (!err.response.data) reject(defaultError);
+        else reject(err.response.data);
+      });
+  });
+};
+
+export const getGalleryAlbum = async (id) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${baseUrl}/gallery/album/${id}`, { headers: BASIC_AUTH })
+      .then((data) => {
+        resolve(data.data);
+      })
+      .catch((err) => {
+        const defaultError = {
+          code: 500,
+          status: 'error',
+          message: 'Failed to fetch data. Please contact developer.',
+        };
+        if (!err.response) reject(defaultError);
+        else if (!err.response.data) reject(defaultError);
+        else reject(err.response.data);
+      });
+  });
 };

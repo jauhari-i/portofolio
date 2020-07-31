@@ -2,7 +2,7 @@ import React from 'react';
 import { SearchRounded } from '@material-ui/icons';
 import './style.css';
 
-const PageHeader = ({ search, title }) => {
+const PageHeader = ({ search, title, onChange }) => {
   return (
     <div className="header-root">
       <div className="row space">
@@ -23,6 +23,7 @@ const PageHeader = ({ search, title }) => {
                     type="text"
                     name="search"
                     id="search"
+                    onChange={(e) => onChange(e)}
                     placeholder="Search..."
                     className="search-input"
                   />
