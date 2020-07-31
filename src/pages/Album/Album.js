@@ -107,7 +107,7 @@ const All = ({ handleAlbum, handleOpen, album }) => {
       </div>
       <div className="all">
         {view === 'grid' ? (
-          <div className="grid-img">
+          <div className="grid-img-album">
             <div className="row">
               {dataAlbum.map((item, idx) => (
                 <div key={idx + item.albumId} className="col-sm-3 top-5">

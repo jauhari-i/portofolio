@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Sidebar from './components/layouts/Sidebar';
 import Home from './pages/Home';
 import Album from './pages/Album';
+import Gallery from './pages/Gallery';
 
 export const ContentDesktop = () => {
   return (
@@ -12,6 +13,7 @@ export const ContentDesktop = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/albums" component={Album} />
+        <Route exact path="/gallery" component={Gallery} />
       </Switch>
     </Sidebar>
   );
