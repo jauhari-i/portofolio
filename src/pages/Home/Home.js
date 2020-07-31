@@ -86,12 +86,13 @@ const Home = () => {
 
 const Latest = () => {
   const { dataGallery } = useSelector((s) => s.Home);
-  const sortedGallery = dataGallery
-    .slice(0, 4)
-    .sort((a, b) => {
-      return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
-    })
-    .reverse();
+  const sortedGallery = dataGallery.sort((a, b) => {
+    a.createdAt = new Date(a.createdAt);
+    b.createdAt = new Date(b.createdAt);
+    if (a.createdAt < b.createdAt) return 1;
+    if (a.createdAt > b.createdAt) return -1;
+    return 0;
+  });
 
   return (
     <div className="latest">
@@ -102,11 +103,13 @@ const Latest = () => {
       </div>
       <div className="latest-group">
         <div className="row">
-          {sortedGallery.map((item, idx) => (
+          {sortedGallery.slice(0, 4).map((item, idx) => (
             <div key={idx} className="col-sm-3 top-5">
               <figure className="img-all">
                 <img src={item.imgUrl} alt="haha" />
-                <figcaption className="caption">{item.caption}</figcaption>
+                <figcaption className="caption">
+                  {item.caption} <br /> <small>{moment(item.createdAt).format('LLL')}</small>{' '}
+                </figcaption>
               </figure>
             </div>
           ))}
@@ -144,7 +147,9 @@ const All = ({ handleImage, handleOpen, gallery }) => {
                 <div key={idx} className="col-sm-3 top-5">
                   <figure className="img-all" onClick={(e) => openModal(e, item.imgUrl)}>
                     <img src={item.imgUrl} alt="haha" />
-                    <figcaption className="caption">{item.caption}</figcaption>
+                    <figcaption className="caption">
+                      {item.caption} <br /> <small>{moment(item.createdAt).format('LLL')}</small>{' '}
+                    </figcaption>
                   </figure>
                 </div>
               ))}

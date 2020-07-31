@@ -110,7 +110,9 @@ const All = ({ handleImage, handleOpen, gallery }) => {
                 <div key={idx} className="col-sm-3 top-5">
                   <figure className="img-all" onClick={(e) => openModal(e, item.imgUrl)}>
                     <img src={item.imgUrl} alt="haha" />
-                    <figcaption className="caption">{item.caption}</figcaption>
+                    <figcaption className="caption">
+                      {item.caption} <br /> <small>{moment(item.createdAt).format('LLL')}</small>{' '}
+                    </figcaption>
                   </figure>
                 </div>
               ))}

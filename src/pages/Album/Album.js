@@ -84,7 +84,13 @@ const Home = () => {
 };
 
 const All = ({ handleAlbum, handleOpen, album }) => {
-  const dataAlbum = album;
+  const dataAlbum = album.sort((a, b) => {
+    a.createdAt = new Date(a.createdAt);
+    b.createdAt = new Date(b.createdAt);
+    if (a.createdAt < b.createdAt) return 1;
+    if (a.createdAt > b.createdAt) return -1;
+    return 0;
+  });
   const openModal = (e, id, size) => {
     e.preventDefault();
     if (size > 0) {
@@ -157,6 +163,14 @@ const DialogImg = ({ open, onClose, albumId }) => {
     }
   }, [albumId, dispatch]);
 
+  const sortedGalleryAlbum = dataAlbumGallery.sort((a, b) => {
+    a.createdAt = new Date(a.createdAt);
+    b.createdAt = new Date(b.createdAt);
+    if (a.createdAt < b.createdAt) return 1;
+    if (a.createdAt > b.createdAt) return -1;
+    return 0;
+  });
+
   return (
     <Dialog open={open} onClose={onClose} maxWidth={'md'} style={{ borderRadius: '10px' }}>
       <DialogContent>
@@ -175,8 +189,8 @@ const DialogImg = ({ open, onClose, albumId }) => {
               </div>
             </div>
             <div className="row" style={{ paddingBottom: '2rem' }}>
-              {dataAlbumGallery.map((item, idx) => (
-                <div key={idx} className="col-sm-3" style={{ padding: '0rem 0.5rem ' }}>
+              {sortedGalleryAlbum.map((item, idx) => (
+                <div key={idx} className="col-sm-3" style={{ padding: '0.5rem 0.5rem ' }}>
                   <figure className="img-album">
                     <img src={item.imgUrl} alt="haha" />
                     <figcaption className="caption">{item.caption}</figcaption>
