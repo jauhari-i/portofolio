@@ -35,7 +35,10 @@ const Sidebar = ({ children }) => {
         </div>
         <ul className="navbar-nav">
           <li>
-            <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
+            <Link
+              to={process.env.PUBLIC_URL + '/'}
+              className={location.pathname === '/' ? 'active' : ''}
+            >
               <div className="icon">
                 <HomeRounded />
               </div>
@@ -43,7 +46,10 @@ const Sidebar = ({ children }) => {
             </Link>
           </li>
           <li>
-            <Link to="/albums" className={location.pathname === '/albums' ? 'active' : ''}>
+            <Link
+              to={process.env.PUBLIC_URL + '/albums'}
+              className={location.pathname === '/albums' ? 'active' : ''}
+            >
               <div className="icon">
                 <PhotoAlbumRounded />
               </div>
@@ -51,7 +57,10 @@ const Sidebar = ({ children }) => {
             </Link>
           </li>
           <li>
-            <Link to="/gallery" className={location.pathname === '/gallery' ? 'active' : ''}>
+            <Link
+              to={process.env.PUBLIC_URL + '/gallery'}
+              className={location.pathname === '/gallery' ? 'active' : ''}
+            >
               <div className="icon">
                 <Photo />
               </div>
@@ -59,7 +68,10 @@ const Sidebar = ({ children }) => {
             </Link>
           </li>
           <li>
-            <Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>
+            <Link
+              to={process.env.PUBLIC_URL + '/about'}
+              className={location.pathname === '/about' ? 'active' : ''}
+            >
               <div className="icon">
                 <AccountCircleRounded />
               </div>

@@ -141,7 +141,7 @@ const DialogImg = ({ open, onClose, img }) => {
     <Dialog
       open={open}
       onClose={onClose}
-      maxWidth={'lg'}
+      maxWidth={'md'}
       style={{ borderRadius: '10px', overflow: 'hidden' }}
     >
       <DialogContent>

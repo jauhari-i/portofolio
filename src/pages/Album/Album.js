@@ -158,7 +158,7 @@ const DialogImg = ({ open, onClose, albumId }) => {
   }, [albumId, dispatch]);
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth={'lg'} style={{ borderRadius: '10px' }}>
+    <Dialog open={open} onClose={onClose} maxWidth={'md'} style={{ borderRadius: '10px' }}>
       <DialogContent>
         {isLoadingDetail ? (
           <CircularProgress style={{ color: '#999999' }} />
