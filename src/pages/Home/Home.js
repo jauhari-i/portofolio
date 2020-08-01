@@ -103,8 +103,8 @@ const Latest = () => {
       </div>
       <div className="latest-group">
         <div className="row">
-          {sortedGallery.slice(0, 4).map((item, idx) => (
-            <div key={idx} className="col-sm-3 top-5">
+          {sortedGallery.slice(0, 3).map((item, idx) => (
+            <div key={idx} className="col-md-4 top-5 ">
               <figure className="img-all">
                 <img src={item.imgUrl} alt="haha" />
                 <figcaption className="caption">
