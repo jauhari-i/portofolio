@@ -112,6 +112,14 @@ const All = ({ handleAlbum, handleOpen, album }) => {
         </div>
       </div>
       <div className="all">
+        {dataAlbum.length === 0 && (
+          <div className="container">
+            <h1>Whoops!</h1>
+            <br />
+
+            <p>Your search has no result</p>
+          </div>
+        )}
         {view === 'grid' ? (
           <div className="grid-img-album">
             <div className="row">

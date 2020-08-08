@@ -103,6 +103,14 @@ const All = ({ handleImage, handleOpen, gallery }) => {
         </div>
       </div>
       <div className="all">
+        {dataGallery.length === 0 && (
+          <div className="container">
+            <h1>Whoops!</h1>
+            <br />
+
+            <p>Your search has no result</p>
+          </div>
+        )}
         {view === 'grid' ? (
           <div className="grid-img">
             <div className="row">

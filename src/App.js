@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Album from './pages/Album';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
+import NotFound from './pages/NotFound';
 
 export const ContentDesktop = () => {
   return (
@@ -16,6 +17,7 @@ export const ContentDesktop = () => {
         <Route exact path={process.env.PUBLIC_URL + '/albums'} component={Album} />
         <Route exact path={process.env.PUBLIC_URL + '/gallery'} component={Gallery} />
         <Route exact path={process.env.PUBLIC_URL + '/about'} component={About} />
+        <Route exact component={NotFound} />
       </Switch>
     </Sidebar>
   );

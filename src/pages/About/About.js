@@ -100,14 +100,14 @@ const Profile = () => {
             <div className="link-profile">
               <div className="row">
                 <a
-                  href="https://wwww.instagram.com/lunarlarasa"
+                  href="https://www.instagram.com/lunarlarasa"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   <Instagram fontSize="small" />
                 </a>
                 <a
-                  href="https://wwww.twitter.com/lunarlarasa"
+                  href="https://www.twitter.com/lunarlarasa"
                   rel="noopener noreferrer"
                   target="_blank"
                 >

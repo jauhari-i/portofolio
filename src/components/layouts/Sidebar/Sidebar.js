@@ -83,14 +83,14 @@ const Sidebar = ({ children }) => {
           <div className="footer">
             <div className="row">
               <a
-                href="https://wwww.instagram.com/lunarlarasa"
+                href="https://www.instagram.com/lunarlarasa"
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 <Instagram fontSize="small" />
               </a>
               <a
-                href="https://wwww.twitter.com/lunarlarasa"
+                href="https://www.twitter.com/lunarlarasa"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -114,14 +114,14 @@ const Sidebar = ({ children }) => {
             <Paper className="mobile-link">
               <div className="row">
                 <a
-                  href="https://wwww.instagram.com/lunarlarasa"
+                  href="https://www.instagram.com/lunarlarasa"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   <Instagram fontSize="small" />
                 </a>
                 <a
-                  href="https://wwww.twitter.com/lunarlarasa"
+                  href="https://www.twitter.com/lunarlarasa"
                   rel="noopener noreferrer"
                   target="_blank"
                 >

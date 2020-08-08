@@ -74,13 +74,36 @@ const Home = () => {
         <PageHeader search={true} onChange={searchGallery} title="Home" />
         {!isLoadingGallery && (
           <div className="content">
-            <Latest />
-            <All handleImage={handleImage} handleOpen={handleClickOpen} gallery={gallery} />
+            {dataGallery.length === 0 ? (
+              <NoData />
+            ) : (
+              <>
+                <Latest />
+                <All handleImage={handleImage} handleOpen={handleClickOpen} gallery={gallery} />
+              </>
+            )}
             <DialogImg open={open} onClose={handleClose} img={imgModal} />
           </div>
         )}
       </div>
     </>
+  );
+};
+
+const NoData = () => {
+  return (
+    <div className="container">
+      <div class="boo-wrapper">
+        <h1>Whoops!</h1>
+        <br />
+
+        <p>
+          Our Gallery is empty
+          <br />
+          please comeback later.
+        </p>
+      </div>
+    </div>
   );
 };
 
@@ -140,6 +163,14 @@ const All = ({ handleImage, handleOpen, gallery }) => {
         </div>
       </div>
       <div className="all">
+        {dataGallery.length === 0 && (
+          <div className="container">
+            <h1>Whoops!</h1>
+            <br />
+
+            <p>Your search has no result</p>
+          </div>
+        )}
         {view === 'grid' ? (
           <div className="grid-img">
             <div className="row">
