@@ -91,3 +91,43 @@ export const getGalleryAlbum = async (id) => {
       });
   });
 };
+
+export const getUserAbout = async () => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${baseUrl}/about`, { headers: BASIC_AUTH })
+      .then((data) => {
+        resolve(data.data);
+      })
+      .catch((err) => {
+        const defaultError = {
+          code: 500,
+          status: 'error',
+          message: 'Failed to fetch data. Please contact developer.',
+        };
+        if (!err.response) reject(defaultError);
+        else if (!err.response.data) reject(defaultError);
+        else reject(err.response.data);
+      });
+  });
+};
+
+export const sendContactMe = async (data) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(`${baseUrl}/contact`, data, { headers: BASIC_AUTH })
+      .then((data) => {
+        resolve(data.data);
+      })
+      .catch((err) => {
+        const defaultError = {
+          code: 500,
+          status: 'error',
+          message: 'Failed to fetch data. Please contact developer.',
+        };
+        if (!err.response) reject(defaultError);
+        else if (!err.response.data) reject(defaultError);
+        else reject(err.response.data);
+      });
+  });
+};

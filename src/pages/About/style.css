@@ -1,0 +1,124 @@
+.img-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 20px;
+  transition: width 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 1500px) {
+  .img-circle {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile-info p {
+    padding: 20px;
+  }
+}
+
+.img-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.profile {
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-info {
+  background-color: #fefefe;
+  height: 100%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.profile-info p {
+  padding: 50px;
+  font-style: italic;
+}
+
+.link-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.link-profile a {
+  margin: 0px 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.link-profile a:hover {
+  color: #999999;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-group p {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.input-group input {
+  padding: 20px;
+  border: none;
+  background: transparent;
+  border: 1px solid #999999;
+  border-radius: 10px;
+  color: #999999;
+}
+
+.input-group textarea {
+  padding: 20px;
+  border: none;
+  background: transparent;
+  border: 1px solid #999999;
+  border-radius: 10px;
+  color: #999999;
+  width: 100%;
+  height: 265px;
+  resize: none;
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+}
+
+.button-submit {
+  margin-top: 20px;
+  padding: 1rem 4rem;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: #161616;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button-submit:hover {
+  background-color: #242424;
+}
+
+.error-field {
+  color: #b90000;
+}
