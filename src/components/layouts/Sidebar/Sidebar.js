@@ -14,6 +14,7 @@ import {
 import Fade from '@material-ui/core/Fade';
 import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 const Sidebar = ({ children }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -24,6 +25,10 @@ const Sidebar = ({ children }) => {
     e.preventDefault();
     setAnchorEl(e.currentTarget);
     setOpen(!open);
+  };
+
+  const closePopper = () => {
+    setOpen(false);
   };
 
   return (
@@ -110,29 +115,31 @@ const Sidebar = ({ children }) => {
       </nav>
       <Popper open={open} anchorEl={anchorEl} placement={'right'} transition>
         {({ TransitionProps }) => (
-          <Fade {...TransitionProps} timeout={350}>
-            <Paper className="mobile-link">
-              <div className="row">
-                <a
-                  href="https://www.instagram.com/lunarlarasa"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <Instagram fontSize="small" />
-                </a>
-                <a
-                  href="https://www.twitter.com/lunarlarasa"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <Twitter fontSize="small" />
-                </a>
-                <a href="mailto:lunarlarasa@gmail.com" rel="noopener noreferrer" target="_blank">
-                  <MailRounded fontSize="small" />
-                </a>
-              </div>
-            </Paper>
-          </Fade>
+          <ClickAwayListener onClickAway={closePopper}>
+            <Fade {...TransitionProps} timeout={350}>
+              <Paper className="mobile-link">
+                <div className="row">
+                  <a
+                    href="https://www.instagram.com/lunarlarasa"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <Instagram fontSize="small" />
+                  </a>
+                  <a
+                    href="https://www.twitter.com/lunarlarasa"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <Twitter fontSize="small" />
+                  </a>
+                  <a href="mailto:lunarlarasa@gmail.com" rel="noopener noreferrer" target="_blank">
+                    <MailRounded fontSize="small" />
+                  </a>
+                </div>
+              </Paper>
+            </Fade>
+          </ClickAwayListener>
         )}
       </Popper>
       <div className="main">{children}</div>

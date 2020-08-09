@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import PageHeader from '../../components/fragments/PageHeader';
 import './style.css';
 import { Instagram, Twitter, MailRounded } from '@material-ui/icons';
@@ -13,6 +13,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { reset } from 'redux-form';
 import Skeleton from 'react-loading-skeleton';
+import { AppContext } from '../../contexts';
 
 const useStyles = makeStyles((theme) => ({
   colorPrimary: {
@@ -28,10 +29,15 @@ const About = () => {
   const dispatch = useDispatch();
   const { isLoadingAbout, message } = useSelector((s) => s.About);
   const [open, setOpen] = useState(false);
+  const { setOpenDrawer } = useContext(AppContext);
 
   const onClose = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+    setOpenDrawer(false);
+  }, [setOpenDrawer]);
 
   useEffect(() => {
     if (message === 'SUKSES') {
@@ -69,15 +75,15 @@ const Profile = () => {
   if (isLoadingAbout) {
     return (
       <div className="col-md-12">
-        <div className="row profile">
+        <div className="row space profile">
           <div className="col-md-3">
             <div className="img-profile">
               <Skeleton circle={true} height={200} width={200} />
             </div>
           </div>
           <div className="col-md-9">
-            <div className="profile-info">
-              <Skeleton height={200} />
+            <div style={{ marginTop: '20px' }} className="profile-info">
+              <Skeleton height={200} width={500} />
             </div>
           </div>
         </div>

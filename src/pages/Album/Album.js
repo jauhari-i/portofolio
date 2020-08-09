@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PageHeader from '../../components/fragments/PageHeader';
 import { ListAltRounded, ViewComfyRounded } from '@material-ui/icons';
 import './style.css';
@@ -15,6 +15,7 @@ import { fetchAllAlbum, fetchDetailAlbum, fetchAlbumGallery } from './actions';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import defaultImg from '../../assets/img/black.jpg';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { AppContext } from '../../contexts';
 
 const useStyles = makeStyles((theme) => ({
   colorPrimary: {
@@ -33,6 +34,11 @@ const Home = () => {
   const [open, setOpen] = useState(false);
   const [album, setAlbum] = useState([]);
   const [albumId, setAlbumId] = useState();
+
+  const { setOpenDrawer } = useContext(AppContext);
+  useEffect(() => {
+    setOpenDrawer(false);
+  }, [setOpenDrawer]);
 
   useEffect(() => {
     dispatch(fetchAllAlbum());

@@ -8,6 +8,8 @@ import Album from './pages/Album';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
+import DrawerMobile from './components/layouts/DrawerMobile';
+import ContextProvider from './contexts';
 
 export const ContentDesktop = () => {
   return (
@@ -24,7 +26,17 @@ export const ContentDesktop = () => {
 };
 
 export const ContentMobile = () => {
-  return <h1>Mobile App</h1>;
+  return (
+    <DrawerMobile>
+      <Switch>
+        <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
+        <Route exact path={process.env.PUBLIC_URL + '/albums'} component={Album} />
+        <Route exact path={process.env.PUBLIC_URL + '/gallery'} component={Gallery} />
+        <Route exact path={process.env.PUBLIC_URL + '/about'} component={About} />
+        <Route exact component={NotFound} />
+      </Switch>
+    </DrawerMobile>
+  );
 };
 
 const App = ({ store }) => {
@@ -39,7 +51,9 @@ const App = ({ store }) => {
   }, [width]);
   return (
     <Provider store={store}>
-      <BrowserRouter>{width <= 425 ? <ContentMobile /> : <ContentDesktop />}</BrowserRouter>
+      <ContextProvider>
+        <BrowserRouter>{width <= 425 ? <ContentMobile /> : <ContentDesktop />}</BrowserRouter>
+      </ContextProvider>
     </Provider>
   );
 };

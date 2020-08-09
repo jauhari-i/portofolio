@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PageHeader from '../../components/fragments/PageHeader';
 import { ListAltRounded, ViewComfyRounded } from '@material-ui/icons';
 import Dialog from '@material-ui/core/Dialog';
@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllGallery } from '../Home/actions';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import moment from 'moment';
+import { AppContext } from '../../contexts';
 
 const useStyles = makeStyles((theme) => ({
   colorPrimary: {
@@ -28,6 +29,10 @@ const Home = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const { isLoadingGallery, dataGallery } = useSelector((s) => s.Home);
+  const { setOpenDrawer } = useContext(AppContext);
+  useEffect(() => {
+    setOpenDrawer(false);
+  }, [setOpenDrawer]);
 
   const [open, setOpen] = useState(false);
   const [imgModal, setImgModal] = useState();

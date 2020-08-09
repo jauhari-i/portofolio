@@ -1,0 +1,75 @@
+:root {
+  --navbar-expanded: 14em;
+  --navbar-shrinked: 4.4em;
+  --navbar-li-padding: 0.8em;
+  --navbar-li-padding-quarter: 0.8em;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1250;
+  animation: swipeLeft 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+
+.mobile-nav {
+  align-self: center;
+  list-style: none;
+}
+
+.mobile-nav li {
+  padding: var(--navbar-li-padding);
+}
+
+.mobile-nav a {
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+  color: #777777;
+}
+
+.mobile-nav a:hover {
+  color: #999999;
+}
+
+.mobile-nav a.active {
+  color: black;
+}
+
+@keyframes swipeLeft {
+  0% {
+    transform: translateX(-4rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-footer {
+  padding-bottom: 30px;
+}
+
+.mobile-footer {
+  align-self: center;
+}
+
+.mobile-footer .row {
+  justify-content: center;
+}
+
+.mobile-footer .row a {
+  margin: 0px 10px;
+}
